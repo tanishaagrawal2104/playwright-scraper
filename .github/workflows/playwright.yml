@@ -1,0 +1,19 @@
+name: Playwright QA Check
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: |
+        npm install -D playwright
+
+    - name: Run Playwright script (23f3001897@ds.study.iitm.ac.in)
+      run: node scrape.js
